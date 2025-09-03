@@ -1,2 +1,2 @@
-# client_project_f25
-Hyun Client Project
+# Client_Project_Starter_Code
+Starter code for the Fall 2025 & Winter 2026 Client Project

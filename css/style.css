@@ -290,6 +290,7 @@ img {
     justify-items: center;
 }
 
+/* Fix for YouTube iframe accessibility */
 iframe {
     width: 100%;
     max-width: 560px;
@@ -402,15 +403,22 @@ footer {
     gap: var(--spacing-xs);
 }
 
+/* Fix contrast issue - change from maize to white for better contrast */
 .footer--contact-button {
-    color: var(--umich-maize);
+    color: var(--white);
     text-decoration: none;
     font-weight: bold;
+    background-color: var(--dark-blue);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--white);
 }
 
 .footer--contact-button:hover,
 .footer--contact-button:focus {
+    color: var(--umich-maize);
     text-decoration: underline;
+    background-color: var(--umich-blue);
 }
 
 .copyright-and-links {

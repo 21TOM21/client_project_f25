@@ -71,13 +71,14 @@ header {
     color: var(--white);
     padding: var(--spacing-md);
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto 1fr;
     gap: var(--spacing-md);
     align-items: center;
 }
 
 header img {
     justify-self: center;
+    grid-column: 2;
     max-width: 200px;
     height: auto;
 }
@@ -87,6 +88,11 @@ header h1 {
     text-align: center;
     margin: 0;
     color: var(--white);
+    grid-column: 1 / -1;
+}
+
+nav {
+    grid-column: 1 / -1;
 }
 
 /* Navigation Grid - Mobile: 2x2 grid */
@@ -163,6 +169,43 @@ p {
     margin-bottom: var(--spacing-md);
 }
 
+/* ===== MAIN CONTENT GRIDS ===== */
+/* Home page grid for Start Here section */
+.start-here-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    align-items: start;
+}
+
+/* Home page grid for Popular Resources */
+.popular-resources {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+}
+
+/* Resume page grid for resource lists */
+.resource-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+}
+
+/* Network page grid for outreach resources */
+.outreach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+}
+
+/* Job plans grid for platforms */
+.platform-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+}
+
 /* ===== LISTS & LINKS ===== */
 ul, ol {
     margin-bottom: var(--spacing-md);
@@ -233,40 +276,55 @@ footer {
     margin: 0 auto;
 }
 
-/* Footer Grid - Mobile: Multi-column layout */
+/* Footer Grid - Mobile: 3-column layout */
 .grid--3col--equal {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: var(--spacing-lg);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--spacing-md);
     text-align: center;
 }
 
-.l-3up--1,
-.l-3up--2,
-.l-3up--3 {
+.l-3up--1 {
+    grid-column: 1;
+    grid-row: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.footer--address {
-    margin: var(--spacing-md) 0;
-    line-height: var(--line-height);
+.l-3up--2 {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.l-3up--3 {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-media-icon-group {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: var(--spacing-sm);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: var(--spacing-md);
     margin: var(--spacing-md) 0;
-    max-width: 300px;
+    max-width: 100%;
 }
 
 .social-media-icon {
     display: block;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 
 .social-media-icon svg {
@@ -288,22 +346,42 @@ footer {
     justify-items: center;
 }
 
-.footer-links a {
-    color: var(--white);
-    text-decoration: none;
-}
-
-.footer-links a:hover,
-.footer-links a:focus {
-    color: var(--umich-maize);
-    text-decoration: underline;
-}
-
 .footer-feedback {
     margin-top: var(--spacing-md);
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xs);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+    justify-items: center;
+}
+
+.footer-links a,
+.footer-feedback a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    background-color: var(--dark-blue);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--white);
+    text-align: center;
+    min-width: 120px; /* Consistent button width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px; /* Touch-friendly */
+}
+
+.footer-links a:hover,
+.footer-links a:focus,
+.footer-feedback a:hover,
+.footer-feedback a:focus {
+    color: var(--umich-maize);
+    text-decoration: underline;
+    background-color: var(--umich-blue);
+}
+
+.footer-links a::after {
+    content: none;
 }
 
 /* Fix contrast issue - change from maize to white for better contrast */
@@ -322,6 +400,11 @@ footer {
     color: var(--umich-maize);
     text-decoration: underline;
     background-color: var(--umich-blue);
+}
+
+.footer--address {
+    margin: var(--spacing-md) 0;
+    line-height: var(--line-height);
 }
 
 .copyright-and-links {
@@ -357,4 +440,13 @@ input[type="button"]:focus {
 *:focus {
     outline: 2px solid var(--umich-maize);
     outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

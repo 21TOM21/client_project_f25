@@ -205,7 +205,8 @@ p {
 }
 
 /* ===== LISTS & LINKS ===== */
-ul, ol {
+ul,
+ol {
     margin-bottom: var(--spacing-md);
     padding-left: var(--spacing-lg);
 }
@@ -320,7 +321,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
     gap: var(--spacing-sm);
     width: 100%;
-    
+
 }
 
 .social-media-icon {
@@ -409,7 +410,7 @@ footer {
 }
 
 /* ===== BUTTONS & INTERACTIVE ELEMENTS ===== */
-button, 
+button,
 input[type="submit"],
 input[type="button"] {
     background: var(--umich-blue);
@@ -437,4 +438,291 @@ input[type="button"]:focus {
 *:focus {
     outline: 2px solid var(--umich-maize);
     outline-offset: 2px;
+}
+
+
+/* ===== TABLET/DESKTOP MEDIA QUERIES ===== */
+
+/* Tablet: 768px and up */
+@media (min-width: 768px) {
+
+    /* Header improvements */
+    header {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        padding: var(--spacing-lg);
+        text-align: center;
+    }
+
+    header img {
+        justify-self: center;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    /* Navigation - horizontal layout below logo */
+    nav {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    nav ul {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        gap: var(--spacing-sm);
+    }
+
+    nav a {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    header h1 {
+        grid-column: 1;
+        grid-row: 3;
+        font-size: var(--font-size-xxl);
+        margin: var(--spacing-sm) 0;
+    }
+
+    /* Main content improvements */
+    main {
+        padding: var(--spacing-lg);
+    }
+
+    /* Enhanced grid layouts */
+    .start-here-grid,
+    .popular-resources,
+    .resource-grid,
+    .outreach-grid,
+    .platform-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+
+    /* Footer improvements */
+    .grid--3col--equal {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: auto;
+        text-align: left;
+    }
+
+    .l-3up--1 {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .l-3up--2 {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .l-3up--3 {
+        grid-column: 3;
+        grid-row: 1;
+        align-items: flex-end;
+    }
+
+    .social-media-icon-group {
+        justify-content: flex-end;
+    }
+
+    /* Image and media improvements */
+    img {
+        max-width: 80%;
+    }
+
+    iframe {
+        max-width: 80%;
+        height: 400px;
+    }
+
+    /* Typography improvements */
+    h2 {
+        font-size: var(--font-size-xxl);
+    }
+
+    h3 {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) {
+
+    /* Header enhancements */
+    header {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        padding: var(--spacing-xl);
+        text-align: center;
+    }
+
+    /* Navigation enhancements */
+    nav {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    nav a {
+        font-size: var(--font-size-base);
+        padding: var(--spacing-sm) var(--spacing-md);
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        grid-column: 1;
+        grid-row: 3;
+        margin: var(--spacing-md) 0;
+    }
+
+    /* Main content enhancements */
+    main {
+        max-width: 1400px;
+        padding: var(--spacing-xl);
+    }
+
+    /* Advanced grid layouts */
+    .start-here-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .popular-resources {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .resource-grid,
+    .outreach-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .platform-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Card-based layout for resources */
+    .resource-grid>div,
+    .outreach-grid>div,
+    .platform-grid>div {
+        background: var(--light-gray);
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius);
+        border-left: 4px solid var(--umich-maize);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .resource-grid>div:hover,
+    .outreach-grid>div:hover,
+    .platform-grid>div:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer enhancements */
+    footer {
+        padding: var(--spacing-xl);
+    }
+
+    .grid--3col--equal {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    /* Interactive elements */
+    a {
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: var(--umich-maize);
+    }
+
+    /* Enhanced image display */
+    img {
+        max-width: 70%;
+        transition: transform 0.3s ease;
+    }
+
+    img:hover {
+        transform: scale(1.02);
+    }
+
+    /* Improved iframe responsiveness */
+    iframe {
+        max-width: 70%;
+        height: 450px;
+    }
+}
+
+/* Large Desktop: 1440px and up */
+@media (min-width: 1440px) {
+
+    /* Header stays in single column layout */
+    header {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    nav {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    header h1 {
+        grid-column: 1;
+        grid-row: 3;
+        font-size: 2.5rem;
+    }
+
+    /* Ultra-wide layout optimizations */
+    main {
+        max-width: 1600px;
+    }
+
+    .resource-grid,
+    .outreach-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Enhanced typography for large screens */
+    body {
+        font-size: var(--font-size-lg);
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    /* Improved spacing */
+    section {
+        margin-bottom: var(--spacing-xl);
+    }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --umich-blue: #000000;
+        --umich-maize: #ffff00;
+        --text-color: #000000;
+    }
+
+    a {
+        text-decoration: underline;
+    }
 }
